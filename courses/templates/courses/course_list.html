@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prueba Platzi</title>
+</head>
+<body>
+<h1>Cursos de Platzi</h1>
+
+<p>
+    <a href="{% url "courses:new" %}">Agregar curso</a>
+</p>
+
+<ul>
+    {% for alumno in object_list %}
+        <li>
+            <p>{{ alumno.name }}</p>
+            <p>
+                <a href="{% url "alumnos:detail" course.id %}">Ver</a> | 
+                <a href="{% url "alumnos:edit" course.id %}">Editar</a> | 
+                <a href="{% url "alumnos:delete" course.id %}">Borrar</a> 
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for profesor in object_list %}
+        <li>
+            <p>{{ profesor.name }}</p>
+            <p>
+                <a href="{% url "profesores:detail" course.id %}">Ver</a> | 
+                <a href="{% url "profesores:edit" course.id %}">Editar</a> | 
+                <a href="{% url "profesores:delete" course.id %}">Borrar</a> 
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
