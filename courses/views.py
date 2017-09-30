@@ -13,12 +13,16 @@ from .models import Alumno, Profesor
 
 class AlumnoList(ListView):
     model = Alumno
+    template_name = 'courses/alumnos/alumnos_list.html'
+
 
 class AlumnoDetail(DetailView):
     model = Alumno
 
+
 class AlumnoCreation(CreateView):
     model = Alumno
+    template_name = 'courses/alumnos/alumno_form.html'
     success_url = reverse_lazy('courses:list')
     fields = ['name', 'lastname']
 
